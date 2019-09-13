@@ -1,0 +1,174 @@
+﻿
+@{
+    ViewBag.Title = "LOGIN";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Login</h2>
+<br />
+@using (Html.BeginForm())
+{
+    <table>
+
+        <tr>
+            <th>@Html.Label("Student_name", "Name ")</th>
+            <td>@Html.TextBox("SFname", "", new { @class = "form-control", placeholder = "First Name" })</td>
+        </tr>
+        <tr>
+            <td>@Html.Label("Mail", "E-Mail")</td>
+            <td>@Html.TextBox("email", "", new { @class = "form-control", placeholder = "E-Mail" })</td>
+        </tr>
+        <tr>
+            <td>
+                @Html.Label("P", "Password")
+            </td>
+            <td> @Html.Password("Pass", "", new { @class = "form-control", placeholder = "Password" })</td>
+        </tr>
+    </table>
+}
+@*<!DOCTYPE html>
+    <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <link rel="stylesheet" type="text/css" href="~/Content/StyleSheet1.css" />
+        <meta charset="utf-8" />
+        <title>login</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+    </head>
+    <body>
+        <h2 class="text-danger" style="font-size:60px">Login</h2>
+        <img src="~/Content/image/male.png" id="img" style="border-radius:150px;width:150px;height:150px;"><br /><br />
+        <label for="files" style="float: right; margin-top:80px;margin-left:100px" class="btn btn-success">Select Image</label>
+        <input type='file' id="files" style="visibility:hidden;" onchange="readURL(this);" />
+
+        <div class="backgr">
+
+
+            <form name="form1" action="#">
+                <table>
+                    <tr>
+                        <th>Fullname</th>
+                        <td>
+                            <input type="text" name='text1' id="full" placeholder="Fullname" class="form-control" />
+                        </td>
+                        <td class="massage"><span id="not"></span></td>
+                        <td class="massage"></td>
+
+                    </tr>
+                    <tr>
+                        <th>UserName</th>
+                        <td><input type="text" name='text2' placeholder="Name" class="form-control" /></td>
+                        <td class="massage"><span id="not2"></span></td>
+                    </tr>
+                    <tr>
+                        <th>Password</th>
+                        <td><input type="password" name="pass1" placeholder="Password" class="form-control" /></td>
+                        <td class="massage"><span id="not3"></span></td>
+                    </tr>
+                    <tr>
+                        <th>Confirm Password</th>
+                        <td><input type="password" name="pass2" placeholder="Password" class="form-control" /></td>
+                        <td class="massage"><span id="not4"></span></td>
+                    </tr>
+                    <tr>
+                        <th>Gender</th>
+                        <td>
+                            <select id="sel" onchange="gend()" class="form-control">
+                                <option value="male">male</option>
+                                <option value="famale">famale</option>
+                            </select>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>Phone: </th>
+                        <td><input type="tel" id="ph" placeholder="Phone" class="form-control" /></td>
+                    </tr>
+                    <tr>
+                        <th>Mobile: : </th>
+                        <td><input type="number" placeholder="Mobile" class="form-control" /></td>
+                    </tr>
+                    <tr>
+                        <th>City: </th>
+                        <td>
+
+                            <select name="city2" onchange="city()" class="form-control">
+                                <option> </option>
+                                <option>مصر</option>
+                                <option>تونس</option>
+                                <option>المغرب</option>
+                                <option>فلسطين</option>
+                            </select>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Country: </th>
+                        <td>
+                            <select class="form-control">
+                                <option>  </option>
+                                <optgroup label="egypt" id="egypt" style="display:none">
+                                    <option>القاهر</option>
+                                    <option>الاسكندرية</option>
+                                    <option>اسوان</option>
+                                    <option>الجيزة</option>
+                                    <option>الفيوم</option>
+                                    <option>اسيوط</option>
+                                    <option>حلوان</option>
+                                    <option>دمياط</option>
+                                    <option>الاقصر</option>
+                                    <option>بورسعيد</option>
+                                    <option>بني سويف</option>
+                                    <option>التفتيش</option>
+                                </optgroup>
+                                <optgroup label="egypt" id="egypt2" style="display:none">
+                                    <option>دارماد</option>
+                                    <option>الحواتم</option>
+                                    <option>السلخانة</option>
+                                    <option>الصنترال</option>
+                                    <option>ابشواي</option>
+                                    <option>سنورس</option>
+                                    <option>البركة</option>
+                                    <option>فنية</option>
+                                    <option>الصدر</option>
+                                    <option>العبودي</option>
+                                    <option>المشتل</option>
+                                    <option>منشاة عبدالله</option>
+                                </optgroup>
+
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Adress </th>
+                        <td> <textarea name="massage" rows="1" cols="40"></textarea></td>
+                    </tr>
+                    <tr>
+
+                        <td>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" onchange="right()" id="customCheck" name="example1">
+                                <label class="custom-control-label" style="    color:white;" for="customCheck">Enable</label>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <input type="reset" id="sub" disabled name="submit" class="btn btn-danger" value="Submit" onclick="validate()" />
+            </form>
+
+
+
+
+        </div>
+
+        <script src="~/Scripts/Script1.js">
+
+            document.all.sub.disabled = true;
+
+        </script>
+
+    </body>
+    </html>*@

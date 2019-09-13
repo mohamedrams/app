@@ -1,0 +1,38 @@
+﻿body {
+    background-image: url("/Content/image/home-visual.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+tr{
+    width:80px;
+}
+table {
+}
+th {
+    color:white;
+    width: 850px;
+    text-align: left;
+    padding: 5PX;
+}
+td {
+    padding: 2PX;
+    padding-left: 16px;
+    padding-top: 8px;
+}
+
+.backgr {
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid black;
+    border-radius: 25px;
+    width: 500px;
+    height: 650px;
+    padding: 25PX;
+    margin-top: 20px;
+    margin-left: 1010px;
+}
+img {
+    float: right;
+}
+.massage{
+
+width:70px; }
